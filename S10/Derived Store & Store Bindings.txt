@@ -1,0 +1,59 @@
+Derived Store & Store Bindings
+There are two other features which you can use in conjunction with Svelte stores
+
+1) Derived Stores
+
+You can have a store which produces values based on another store + some adjustment logic.
+
+Link httpssvelte.devtutorialderived-stores
+
+Example
+
+import { readable, derived } from 'sveltestore';
+ 
+export const time = readable(new Date(), function start(set) {
+    const interval = setInterval(() = {
+        set(new Date());
+    }, 1000);
+ 
+    return function stop() {
+        clearInterval(interval);
+    };
+});
+ 
+const start = new Date();
+ 
+export const elapsed = derived(
+    time,
+    $time = Math.round(($time - start)  1000)
+);
+2) Store Bindings
+
+Allows you to bind to values stored in a store.
+
+Link httpssvelte.devtutorialstore-bindings
+
+Example
+
+store.js
+
+import { writable, derived } from 'sveltestore';
+ 
+export const name = writable('world');
+ 
+export const greeting = derived(
+    name,
+    $name = `Hello ${$name}!`
+);
+App.svelte
+
+script
+    import { name, greeting } from '.stores.js';
+script
+ 
+h1{$greeting}h1
+input bindvalue={$name}
+ 
+button onclick={() = $name += '!'}
+    Add exclamation mark!
+button

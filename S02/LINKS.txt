@@ -1,0 +1,3 @@
+httpsdeveloper.mozilla.orgen-USdocsWebJavaScriptReferenceStatementslabel
+
+https://svelte.dev/tutorial/basics

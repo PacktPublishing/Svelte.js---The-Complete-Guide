@@ -1,0 +1,4 @@
+Deferred Transitions
+In some applications use-cases, you might want to play multiple animations after each other (e.g. animate an item from list A to B) - deferred transitions can help you with that.
+
+Here's a great example httpssvelte.devtutorialdeferred-transitions
